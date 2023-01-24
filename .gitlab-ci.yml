@@ -25,11 +25,11 @@ stages:
     tags:       [ Dedicated ]
     script:
         # Show Commands List
-        - wall-e list
+        - wall-e list --ansi
         # Execute GrumPhp Testsuite
-        - wall-e grumphp:quality
-        - wall-e grumphp:stan
-        - wall-e grumphp:full
+        - wall-e grumphp:quality --ansi
+        - wall-e grumphp:stan --no-ansi
+        - wall-e grumphp:full --ansi
 
 quality:php-8.1:
     image: registry.gitlab.com/badpixxel-projects/php-sdk:php-8.1
