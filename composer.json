@@ -1,0 +1,37 @@
+{
+    "name":                 "badpixxel/php-cli",
+    "description":          "Dev & Ci/CD Toolkit",
+    "type":                 "application",
+    "prefer-stable":        true,
+    "license":              "MIT",
+    "minimum-stability":    "dev",
+
+    "authors": [
+        {
+            "name": "BadPixxel",
+            "email": "eshop.bpaquier@gmail.com"
+        }
+    ],
+
+    "bin": ["bin/wall-e.phar"],
+
+    "autoload":{
+        "psr-4":{
+            "BadPixxel\\PhpRobo\\": "./src"
+        }
+    },
+
+    "require": {
+        "php":                  "^7.4|^8.0",
+        "consolidation/robo":   "^4.0"
+    },
+    "require-dev": {
+        "badpixxel/php-sdk":    "^2.0"
+    },
+
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp": true
+        }
+    }
+}
