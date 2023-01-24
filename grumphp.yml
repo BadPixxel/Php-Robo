@@ -12,6 +12,13 @@
 ################################################################################
 
 #############################################
+# Override Config. for Robo
+
+parameters:
+    exclude:            ['vendor', 'src/WallE/stub.php']
+
+
+#############################################
 # Import Config. from Php Core Module
 imports:
     - "./vendor/badpixxel/php-sdk/grumphp/generic.yml"

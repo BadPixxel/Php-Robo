@@ -18,4 +18,4 @@ $application = require_once 'phar://wall-e.phar/wall-e.php';
 $application->setPharMode(true);
 $application->run();
 
-//__HALT_COMPILER();
+__HALT_COMPILER();

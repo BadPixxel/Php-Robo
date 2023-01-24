@@ -1,0 +1,44 @@
+################################################################################
+#
+# Copyright (C) 2020 BadPixxel <www.badpixxel.com>
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+################################################################################
+
+################################################################
+# Defined Pipeline Stages
+stages:
+  - quality
+
+################################################################
+# Functional Tests
+################################################################
+
+.quality_tests:    &quality_tests
+    stage:      quality
+    tags:       [ Dedicated ]
+    script:
+        # Show Commands List
+        - wall-e list
+        # Execute GrumPhp Testsuite
+        - wall-e grumphp:quality
+        - wall-e grumphp:stan
+        - wall-e grumphp:full
+
+quality:php-8.1:
+    image: registry.gitlab.com/badpixxel-projects/php-sdk:php-8.1
+    <<: *quality_tests
+
+quality:php-8.0:
+    image: registry.gitlab.com/badpixxel-projects/php-sdk:php-8.0
+    <<: *quality_tests
+
+quality:php-7.4:
+    image: registry.gitlab.com/badpixxel-projects/php-sdk:php-7.4
+    <<: *quality_tests

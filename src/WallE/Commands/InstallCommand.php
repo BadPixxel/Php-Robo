@@ -37,7 +37,7 @@ class InstallCommand extends Tasks
         // Copy Executable
         $fsStack
             ->copy("bin/wall-e.phar", "/usr/local/bin/wall-e")
-            ->chmod("/usr/local/bin/wall-e", 755)
+            ->chmod("/usr/local/bin/wall-e", 0755)
             ->run()
         ;
         //====================================================================//
