@@ -23,6 +23,9 @@ stages:
 .quality_tests:    &quality_tests
     stage:      quality
     tags:       [ Dedicated ]
+    before_script:
+        # Build from Sources
+        - echo "phar.readonly=0" >> /usr/local/etc/php/conf.d/phar.ini
     script:
         # Build from Sources
         - composer update
