@@ -26,8 +26,8 @@ stages:
     script:
         # Build from Sources
         - composer update
-        - php wall-e wall-e:build
-        - php wall-e wall-e:install
+        - php wall-e.php wall-e:build
+        - php wall-e.php wall-e:install
         # Show Commands List
         - wall-e list
         # Execute GrumpPhp Testsuite
