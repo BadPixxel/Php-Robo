@@ -24,11 +24,15 @@ stages:
     stage:      quality
     tags:       [ Dedicated ]
     script:
+        # Build from Sources
+        - composer update
+        - php wall-e wall-e:build
+        - php wall-e wall-e:install
         # Show Commands List
-        - wall-e list --ansi
-        # Execute GrumPhp Testsuite
-        - wall-e grumphp:quality --ansi
-        - wall-e grumphp:stan --no-ansi
+        - wall-e list
+        # Execute GrumpPhp Testsuite
+        - wall-e grumphp:quality
+        - wall-e grumphp:stan
         - wall-e grumphp:full
 
 quality:php-8.1:
