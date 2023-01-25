@@ -49,3 +49,13 @@ quality:php-8.0:
 quality:php-7.4:
     image: registry.gitlab.com/badpixxel-projects/php-sdk:php-7.4
     <<: *quality_tests
+
+#################################################################
+## Trigger Php SDK Docker Build
+#################################################################
+toolkit:
+    stage:      deploy
+    trigger:
+        project:  badpixxel-projects/Php-Sdk
+        strategy: depend
+
