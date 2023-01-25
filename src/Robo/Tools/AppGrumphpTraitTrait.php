@@ -108,8 +108,11 @@ trait AppGrumphpTraitTrait
                 return false;
             }, $tasks);
         }
-        $progressBar = $consoleIo->createProgressBar(count($tasks));
 
+        $isCliMode = empty(getenv('CI'));
+        if ($isCliMode) {
+            $progressBar = $consoleIo->createProgressBar(count($tasks));
+        }
         //====================================================================//
         // Executes Tasks
         $results = array();
@@ -135,9 +138,13 @@ trait AppGrumphpTraitTrait
             if (!$results[$code]) {
                 $this->taskExec($command)->run();
             }
-            $progressBar->advance();
+            if ($isCliMode) {
+                $progressBar->advance();
+            }
         }
-        $progressBar->clear();
+        if ($isCliMode) {
+            $progressBar->clear();
+        }
 
         return $results;
     }
