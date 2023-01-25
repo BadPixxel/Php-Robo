@@ -15,6 +15,7 @@
 # Defined Pipeline Stages
 stages:
   - quality
+  - deploy
 
 ################################################################
 # Functional Tests
@@ -53,7 +54,7 @@ quality:php-7.4:
 #################################################################
 ## Trigger Php SDK Docker Build
 #################################################################
-toolkit:
+docker:php-sdk:
     stage:      deploy
     trigger:
         project:  badpixxel-projects/Php-Sdk
