@@ -56,10 +56,14 @@ trait AppGrumphpTraitTrait
      * @param array<string, string> $tasks
      * @param string                $name
      *
-     * @return void
+     * @return bool
      */
-    protected function execGrumpSuite(ConsoleIO $consoleIo, ?string $path, array $tasks, string $name = "Tests Suite")
-    {
+    protected function execGrumpSuite(
+        ConsoleIO $consoleIo,
+        ?string $path,
+        array $tasks,
+        string $name = "Tests Suite"
+    ): bool {
         //====================================================================//
         // Setup
         if ($path) {
@@ -78,7 +82,12 @@ trait AppGrumphpTraitTrait
         // Notify User
         if (count($tasks) == count(array_filter($results))) {
             $consoleIo->success("Grumphp ".$name." Passed");
+
+            return true;
         }
+        $consoleIo->error("Grumphp ".$name." Fail");
+
+        return false;
     }
 
     /**

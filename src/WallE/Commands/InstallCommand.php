@@ -35,11 +35,16 @@ class InstallCommand extends Tasks
         $fsStack = $this->taskFilesystemStack();
         //====================================================================//
         // Copy Executable
-        $fsStack
+        $taskResult = $fsStack
             ->copy("bin/wall-e.phar", "/usr/local/bin/wall-e")
             ->chmod("/usr/local/bin/wall-e", 0755)
             ->run()
         ;
+        if (!$taskResult->wasSuccessful()) {
+            $consoleIo->error("BadPixxel Wall-E CLI Install Fail.");
+
+            return;
+        }
         //====================================================================//
         // verify Phar is packed correctly
         $this->_exec('wall-e');

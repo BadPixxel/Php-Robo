@@ -49,6 +49,11 @@ $runner
     ->setClassLoader($classLoader)
 ;
 //====================================================================//
+// Detect CI/CD Environment
+if (getenv('CI')) {
+    $argv = array_merge($argv, array("--ansi"));
+}
+//====================================================================//
 // Execute the command
 $output = new \Symfony\Component\Console\Output\ConsoleOutput();
 $statusCode = $runner->execute($argv, $appName, $appVersion, $output);

@@ -49,11 +49,11 @@ class GrumphpCommand extends Tasks
      *
      * @param null|string $path Force Path Prefix
      *
-     * @return void
+     * @return int
      */
-    public function quality(ConsoleIO $consoleIo, string $path = null)
+    public function quality(ConsoleIO $consoleIo, string $path = null): int
     {
-        $this->execGrumpSuite(
+        return (int) !$this->execGrumpSuite(
             $consoleIo,
             $path,
             self::QUALITY_TASKS,
@@ -68,11 +68,11 @@ class GrumphpCommand extends Tasks
      *
      * @param null|string $path Force Path Prefix
      *
-     * @return void
+     * @return int
      */
-    public function stan(ConsoleIO $consoleIo, string $path = null)
+    public function stan(ConsoleIO $consoleIo, string $path = null): int
     {
-        $this->execGrumpSuite(
+        return (int) !$this->execGrumpSuite(
             $consoleIo,
             $path,
             self::PHPSTAN_TASKS,
@@ -87,11 +87,11 @@ class GrumphpCommand extends Tasks
      *
      * @param null|string $path Force Path Prefix
      *
-     * @return void
+     * @return int
      */
-    public function full(ConsoleIO $consoleIo, string $path = null)
+    public function full(ConsoleIO $consoleIo, string $path = null): int
     {
-        $this->execGrumpSuite(
+        return (int) !$this->execGrumpSuite(
             $consoleIo,
             $path,
             array_merge(self::QUALITY_TASKS, self::PHPSTAN_TASKS),
