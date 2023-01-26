@@ -34,6 +34,7 @@ class AutoConfigCommand extends Tasks
      */
     public function autoConfigure(ConsoleIO $consoleIo): int
     {
+        $consoleIo->title("Wall-E - Auto Config Script");
         //====================================================================//
         // Install Node JS
         $this->appendResult($consoleIo, $this->autoConfigNodeJs());
