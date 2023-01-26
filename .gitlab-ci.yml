@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Copyright (C) 2020 BadPixxel <www.badpixxel.com>
+# Copyright (C) BadPixxel <www.badpixxel.com>
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -30,8 +30,8 @@ stages:
     script:
         # Build from Sources
         - composer update
-        - php wall-e.php wall-e:build
-        - php wall-e.php wall-e:install
+        - php wall-e.php self:build
+        - php wall-e.php self:install
         # Show Commands List
         - wall-e list
         # Execute GrumpPhp Testsuite

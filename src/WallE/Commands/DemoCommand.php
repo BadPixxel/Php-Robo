@@ -25,7 +25,7 @@ class DemoCommand extends Tasks
     use ConsoleResultsTrait;
 
     /**
-     * @command wall-e:demo
+     * @command self:demo
      *
      * @description Bash Outputs Tests & Démo
      *

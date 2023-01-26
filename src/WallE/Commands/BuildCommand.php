@@ -32,7 +32,7 @@ class BuildCommand extends Tasks
     const BUILD_FILE = "wall-e.phar";
 
     /**
-     * @command wall-e:build
+     * @command self:build
      *
      * @description Build BadPixxel Wall-E CLI
      *

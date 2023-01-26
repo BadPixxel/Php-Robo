@@ -23,7 +23,7 @@ use Robo\Tasks;
 class InstallCommand extends Tasks
 {
     /**
-     * @command wall-e:install
+     * @command self:install
      *
      * @description Install BadPixxel Wall-E CLI as Default Command
      *
@@ -33,6 +33,7 @@ class InstallCommand extends Tasks
     {
         /** @var FilesystemStack $fsStack */
         $fsStack = $this->taskFilesystemStack();
+        $fsStack->setVerbosityThreshold(3);
         //====================================================================//
         // Copy Executable
         $taskResult = $fsStack
@@ -54,5 +55,34 @@ class InstallCommand extends Tasks
             "BadPixxel Wall-E CLI Installed. "
             ."Now uses 'wall-e list' to see all available commands"
         );
+    }
+
+    /**
+     * @command self:zsh
+     *
+     * @description Install BadPixxel Wall-E CLI as Zsh Allias
+     *
+     * @return void
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function installZsh(ConsoleIO $consoleIo)
+    {
+        /** @var FilesystemStack $fsStack */
+        $fsStack = $this->taskFilesystemStack();
+        $fsStack->setVerbosityThreshold(3);
+        //====================================================================//
+        // Deploy Zsh Custom Script
+        $home = $_SERVER['HOME'];
+        if ($home && is_dir($home."/.oh-my-zsh")) {
+            $taskResult = $fsStack
+                ->mkdir($home."/.oh-my-zsh/custom")
+                ->copy("./src/Resources/Zsh/wall-e.zsh", $home."/.oh-my-zsh/custom/wall-e.zsh")
+                ->run()
+            ;
+            if ($taskResult->wasSuccessful()) {
+                $consoleIo->success("BadPixxel Wall-E Zsh Allias Installed.");
+            }
+        }
     }
 }
