@@ -28,6 +28,9 @@ services:
         volumes:
             - ./:/var/www/html
             - vendor-php81:/var/www/html/vendor
+#         environment:
+#             NODEJS_VERSION: 14
+#             YARN_VERSION:   "any"
 
     ################################################################################
     # PHP 8.0

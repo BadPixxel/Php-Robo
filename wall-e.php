@@ -16,7 +16,9 @@
 $pharPath = \Phar::running(true);
 if ($pharPath) {
     $autoloaderPath = "{$pharPath}/vendor/autoload.php";
+    $dotEnvPath = "{$pharPath}";
 } else {
+    $dotEnvPath = __DIR__;
     //====================================================================//
     // If we're NOT running from phar load the vendor autoload file.
     if (file_exists(__DIR__.'/vendor/autoload.php')) {
@@ -35,6 +37,13 @@ $appName = "Wall-e - BadPixxel CLI";
 $appVersion = trim((string) file_get_contents(__DIR__.'/VERSION'));
 $selfUpdateRepository = 'badpixxel/php-cli';
 $configurationFilename = '.bp-config.yml';
+//====================================================================//
+// Init DotEnv Variables
+try {
+    $dotenv = new \Symfony\Component\Dotenv\Dotenv();
+    $dotenv->load($dotEnvPath.'/.env', __DIR__.'/.env.dev');
+} catch (\Symfony\Component\Dotenv\Exception\PathException $ex) {
+}
 //====================================================================//
 // Define our Robo Runner
 $runner = new \Robo\Runner();
