@@ -11,10 +11,11 @@
  *  file that was distributed with this source code.
  */
 
-namespace BadPixxel\PhpRobo\WallE\Commands\System;
+namespace BadPixxel\WallE\Robo\Plugin\Commands\System;
 
-use BadPixxel\PhpRobo\Robo\Tasks\RoboTasksTrait;
-use BadPixxel\PhpRobo\Robo\Tools\ConsoleResultsTrait;
+use BadPixxel\Robo\Extras\Console\ResultsBlock;
+use BadPixxel\Robo\NodeJs\NodeJsTasksTrait;
+use BadPixxel\Robo\NodeJs\YarnTasksTrait;
 use Robo\Exception\TaskException;
 use Robo\Result;
 use Robo\Symfony\ConsoleIO;
@@ -22,8 +23,8 @@ use Robo\Tasks;
 
 class AutoConfigCommand extends Tasks
 {
-    use RoboTasksTrait;
-    use ConsoleResultsTrait;
+    use NodeJsTasksTrait;
+    use YarnTasksTrait;
 
     /**
      * @command auto
@@ -56,7 +57,8 @@ class AutoConfigCommand extends Tasks
     private function appendResult(ConsoleIO $consoleIo, Result $result): self
     {
         if (!empty($result->getMessage())) {
-            $this->resultBlock($consoleIo, $result->wasSuccessful(), $result->getMessage());
+            $block = new ResultsBlock($consoleIo);
+            $block->result($result->wasSuccessful(), $result->getMessage());
         }
 
         return $this;

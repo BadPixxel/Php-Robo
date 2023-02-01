@@ -36,7 +36,7 @@ $classLoader = require $autoloaderPath;
 $appName = "Wall-e - BadPixxel CLI";
 $appVersion = trim((string) file_get_contents(__DIR__.'/VERSION'));
 $selfUpdateRepository = 'badpixxel/php-cli';
-$configurationFilename = '.bp-config.yml';
+$configurationFilename = '.robo.yml';
 //====================================================================//
 // Init DotEnv Variables
 try {
@@ -49,7 +49,7 @@ try {
 $runner = new \Robo\Runner();
 $runner
     // Auto-Discover Robo Commands
-    ->setRelativePluginNamespace('WallE')
+    ->setRelativePluginNamespace('Robo\Plugin')
     // Repository for Self Update
     ->setSelfUpdateRepository($selfUpdateRepository)
     // Local Configuration

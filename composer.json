@@ -17,17 +17,21 @@
 
     "autoload":{
         "psr-4":{
-            "BadPixxel\\PhpRobo\\": "./src"
+            "BadPixxel\\WallE\\": "./src"
         }
     },
 
     "require": {
-        "php":                  "^7.4|^8.0",
-        "consolidation/robo":   "^4.0",
-        "symfony/dotenv":       "^4.4|^5.4|^6.1"
+        "php":                          "^7.4|^8.0",
+        "consolidation/robo":           "^4.0",
+        "symfony/dotenv":               "^4.4|^5.4|^6.1",
+        "badpixxel/robo-php":           "dev-main",
+        "badpixxel/robo-jekyll":        "dev-main",
+        "badpixxel/robo-nodejs":        "dev-main",
+        "badpixxel/robo-extras":        "dev-main"
     },
     "require-dev": {
-        "badpixxel/php-sdk":    "^2.0"
+        "badpixxel/php-sdk":            "^2.0"
     },
 
     "config": {

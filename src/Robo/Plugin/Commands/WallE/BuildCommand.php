@@ -11,23 +11,21 @@
  *  file that was distributed with this source code.
  */
 
-namespace BadPixxel\PhpRobo\WallE\Commands;
+namespace BadPixxel\WallE\Robo\Plugin\Commands\WallE;
 
-use BadPixxel\PhpRobo\Robo\Tools\PharBuilderTrait;
 use Robo\Collection\CollectionBuilder;
 use Robo\Symfony\ConsoleIO;
 use Robo\Task\Composer\Install;
 use Robo\Task\Development\PackPhar;
 use Robo\Task\Filesystem\FilesystemStack;
 use Robo\Tasks;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Build Wall-E Executable
  */
 class BuildCommand extends Tasks
 {
-    use PharBuilderTrait;
-
     const SRC_FILE = "wall-e.php";
     const BUILD_FILE = "wall-e.phar";
 
@@ -92,5 +90,24 @@ class BuildCommand extends Tasks
             "BadPixxel Wall-E CLI Build done in %s",
             'bin/'.self::BUILD_FILE
         ));
+    }
+
+    /**
+     * @param CollectionBuilder $pharTask
+     * @param string            $src
+     * @param string            $dest
+     *
+     * @return void
+     */
+    protected function addPhpFiles(CollectionBuilder $pharTask, string $src, string $dest): void
+    {
+        /** @var PackPhar $pharTask */
+        $finder = Finder::create()
+            ->name('*.php')
+            ->in($src)
+        ;
+        foreach ($finder as $file) {
+            $pharTask->addFile($dest.$file->getRelativePathname(), $file->getRealPath());
+        }
     }
 }

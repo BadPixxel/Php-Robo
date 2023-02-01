@@ -11,7 +11,7 @@
  *  file that was distributed with this source code.
  */
 
-namespace BadPixxel\PhpRobo\WallE\Commands;
+namespace BadPixxel\WallE\Robo\Plugin\Commands\WallE;
 
 use Robo\Symfony\ConsoleIO;
 use Robo\Task\Filesystem\FilesystemStack;

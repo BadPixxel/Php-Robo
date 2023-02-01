@@ -11,9 +11,8 @@
  *  file that was distributed with this source code.
  */
 
-namespace BadPixxel\PhpRobo\WallE\Commands\Docker;
+namespace BadPixxel\WallE\Robo\Plugin\Commands\Docker;
 
-use BadPixxel\PhpRobo\Robo\Tools\AppComposerTrait;
 use Robo\Exception\TaskException;
 use Robo\Symfony\ConsoleIO;
 use Robo\Task\Base\ExecStack;
@@ -24,8 +23,6 @@ use Robo\Tasks;
  */
 class CleanupCommand extends Tasks
 {
-    use AppComposerTrait;
-
     /**
      * @command docker:clear
      *
