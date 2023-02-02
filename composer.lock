@@ -53,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:BadPixxel/robo-jekyll.git",
-                "reference": "fd3715a76d020f5b925bcdccdb86beb2406fd0f4"
+                "reference": "d7be0a1cfac94f2c74125373211227f18f494ee7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/BadPixxel%2Frobo-jekyll/repository/archive.zip?sha=fd3715a76d020f5b925bcdccdb86beb2406fd0f4",
-                "reference": "fd3715a76d020f5b925bcdccdb86beb2406fd0f4",
+                "url": "https://gitlab.com/api/v4/projects/BadPixxel%2Frobo-jekyll/repository/archive.zip?sha=d7be0a1cfac94f2c74125373211227f18f494ee7",
+                "reference": "d7be0a1cfac94f2c74125373211227f18f494ee7",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "MIT"
             ],
             "description": "Generate Jekyll Documentations for Robo Task Runner",
-            "time": "2023-01-31T19:15:01+00:00"
+            "time": "2023-02-02T16:48:45+00:00"
         },
         {
             "name": "badpixxel/robo-nodejs",
@@ -91,12 +91,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:BadPixxel/robo-nodejs.git",
-                "reference": "3ffe12ae5a15c8a5fd3758c2a60297570a604f22"
+                "reference": "3dad672ed9e5245cf0b9631d83918e40bdca1c75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/BadPixxel%2Frobo-nodejs/repository/archive.zip?sha=3ffe12ae5a15c8a5fd3758c2a60297570a604f22",
-                "reference": "3ffe12ae5a15c8a5fd3758c2a60297570a604f22",
+                "url": "https://gitlab.com/api/v4/projects/BadPixxel%2Frobo-nodejs/repository/archive.zip?sha=3dad672ed9e5245cf0b9631d83918e40bdca1c75",
+                "reference": "3dad672ed9e5245cf0b9631d83918e40bdca1c75",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "MIT"
             ],
             "description": "Node JS & Yarn Actions for Robo Task Runner",
-            "time": "2023-02-01T14:34:07+00:00"
+            "time": "2023-02-02T15:59:37+00:00"
         },
         {
             "name": "badpixxel/robo-php",

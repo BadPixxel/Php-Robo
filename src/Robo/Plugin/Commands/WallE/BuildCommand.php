@@ -78,6 +78,7 @@ class BuildCommand extends Tasks
         /** @var CollectionBuilder $pharTask */
         $this->addPhpFiles($pharTask, './src', 'src/');
         $this->addPhpFiles($pharTask, $tmpPath.'/vendor', 'vendor/');
+        $this->addExtraFolders($pharTask, $tmpPath.'/vendor', 'vendor/');
         //====================================================================//
         // Build Final Binary
         $pharTask->run();
@@ -93,6 +94,8 @@ class BuildCommand extends Tasks
     }
 
     /**
+     * Add all PHP Files to Phar Archive
+     *
      * @param CollectionBuilder $pharTask
      * @param string            $src
      * @param string            $dest
@@ -108,6 +111,34 @@ class BuildCommand extends Tasks
         ;
         foreach ($finder as $file) {
             $pharTask->addFile($dest.$file->getRelativePathname(), $file->getRealPath());
+        }
+    }
+
+    /**
+     * Add any Extra folder to Phar Archive
+     *
+     * @param CollectionBuilder $pharTask
+     * @param string            $src
+     * @param string            $dest
+     *
+     * @return void
+     */
+    protected function addExtraFolders(CollectionBuilder $pharTask, string $src, string $dest): void
+    {
+        /** @var PackPhar $pharTask */
+        $finder = Finder::create()
+            ->name('.phar-keep')
+            ->in($src)
+            ->ignoreDotFiles(false)
+        ;
+
+        foreach ($finder as $keepFile) {
+            $pharTask->addFile($dest.$keepFile->getRelativePathname(), $keepFile->getRealPath());
+            $keepDir = dirname($keepFile->getRealPath());
+            $keepDirRelative = dirname($keepFile->getRelativePathname())."/";
+            foreach (Finder::create()->in($keepDir)->files() as $file) {
+                $pharTask->addFile($dest.$keepDirRelative.$file->getRelativePathname(), $file->getRealPath());
+            }
         }
     }
 }
