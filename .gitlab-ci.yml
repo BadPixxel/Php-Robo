@@ -15,8 +15,8 @@
 # Defined Pipeline Stages
 stages:
   - quality
-  - documentations
   - deploy
+  - dependencies
 
 ################################################################
 # Functional Tests
@@ -57,7 +57,7 @@ quality:php-7.4:
 #################################################################
 pages:
     image:      jekyll/minimal:latest
-    stage:      documentations
+    stage:      deploy
     tags:       [ Dedicated-Docker ]
     ################################################################################
     # Run Test Script
@@ -71,7 +71,7 @@ pages:
 ## Trigger Php SDK Docker Build
 #################################################################
 docker:php-sdk:
-    stage:      deploy
+    stage:      dependencies
     trigger:
         project:  badpixxel-projects/Php-Sdk
         strategy: depend
