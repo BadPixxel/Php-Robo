@@ -62,7 +62,7 @@ pages:
     ################################################################################
     # Run Test Script
     script:
-        - curl -s https://gitlab.com/badpixxel-robo/jekyll/-/raw/main/scripts/gitlab-pages.sh | bash
+        - wget -qO - https://gitlab.com/badpixxel-robo/jekyll/-/raw/main/scripts/gitlab-pages.sh | sh
     artifacts:
         paths:
             - public
