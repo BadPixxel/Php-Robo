@@ -56,7 +56,7 @@ quality:php-7.4:
 ## Build Documentation
 #################################################################
 pages:
-    image:      jekyll/minimal
+    image:      jekyll/minimal:latest
     stage:      documentations
     tags:       [ Dedicated-Docker ]
     ################################################################################
