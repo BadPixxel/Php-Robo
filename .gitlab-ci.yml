@@ -15,6 +15,7 @@
 # Defined Pipeline Stages
 stages:
   - quality
+  - documentations
   - deploy
 
 ################################################################
@@ -50,6 +51,21 @@ quality:php-8.0:
 quality:php-7.4:
     image: registry.gitlab.com/badpixxel-projects/php-sdk:php-7.4
     <<: *quality_tests
+
+#################################################################
+## Build Documentation
+#################################################################
+pages:
+    image:      jekyll/minimal
+    stage:      documentations
+    tags:       [ Dedicated-Docker ]
+    ################################################################################
+    # Run Test Script
+    script:
+        - curl -s https://gitlab.com/badpixxel-robo/jekyll/-/raw/main/scripts/gitlab-pages.sh | bash
+    artifacts:
+        paths:
+            - public
 
 #################################################################
 ## Trigger Php SDK Docker Build
