@@ -58,7 +58,6 @@ class BuildCommand extends Tasks
             ->workingDir($tmpPath)
             ->noDev()
             ->noInteraction()
-            ->noSuggest()
             ->disablePlugins()
             ->preferDist()
             ->run()
@@ -83,7 +82,7 @@ class BuildCommand extends Tasks
         // Build Final Binary
         $pharTask->run();
         //====================================================================//
-        // verify Phar is packed correctly
+        // Verify Phar is packed correctly
         $this->_exec('php bin/'.self::BUILD_FILE);
         //====================================================================//
         // Notify User
