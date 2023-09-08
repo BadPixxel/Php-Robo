@@ -37,6 +37,7 @@ $appName = "Wall-e - BadPixxel CLI";
 $appVersion = trim((string) file_get_contents(__DIR__.'/VERSION'));
 $selfUpdateRepository = 'badpixxel/php-cli';
 $configurationFilename = 'robo.yml';
+
 //====================================================================//
 // Init DotEnv Variables
 try {
