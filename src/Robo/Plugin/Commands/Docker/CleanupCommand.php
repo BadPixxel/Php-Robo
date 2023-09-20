@@ -42,6 +42,7 @@ class CleanupCommand extends Tasks
             ->stopOnFail()
             ->exec('docker image prune -a -f')
             ->exec('docker volume prune -f')
+            ->exec('docker system prune -f')
             ->run()
         ;
         //====================================================================//
