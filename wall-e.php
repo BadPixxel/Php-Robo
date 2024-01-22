@@ -13,7 +13,7 @@
  */
 
 // If we're running from phar load the phar autoload file.
-$pharPath = \Phar::running(true);
+$pharPath = Phar::running(true);
 if ($pharPath) {
     $autoloaderPath = "{$pharPath}/vendor/autoload.php";
     $dotEnvPath = "{$pharPath}";
@@ -41,13 +41,13 @@ $configurationFilename = 'robo.yml';
 //====================================================================//
 // Init DotEnv Variables
 try {
-    $dotenv = new \Symfony\Component\Dotenv\Dotenv();
+    $dotenv = new Symfony\Component\Dotenv\Dotenv();
     $dotenv->load($dotEnvPath.'/.env', __DIR__.'/.env.dev');
-} catch (\Symfony\Component\Dotenv\Exception\PathException $ex) {
+} catch (Symfony\Component\Dotenv\Exception\PathException $ex) {
 }
 //====================================================================//
 // Define our Robo Runner
-$runner = new \Robo\Runner();
+$runner = new Robo\Runner();
 $runner
     // Auto-Discover Robo Commands
     ->setRelativePluginNamespace('Robo\Plugin')
@@ -65,7 +65,7 @@ if (getenv('CI')) {
 }
 //====================================================================//
 // Execute the command
-$output = new \Symfony\Component\Console\Output\ConsoleOutput();
+$output = new Symfony\Component\Console\Output\ConsoleOutput();
 $statusCode = $runner->execute($argv, $appName, $appVersion, $output);
 //====================================================================//
 // Return the result.

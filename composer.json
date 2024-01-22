@@ -28,6 +28,7 @@
         "badpixxel/robo-php":           "dev-main",
         "badpixxel/robo-jekyll":        "dev-main",
         "badpixxel/robo-nodejs":        "dev-main",
+        "badpixxel/robo-splashsync":    "dev-main",
         "badpixxel/robo-extras":        "dev-main"
     },
     "require-dev": {

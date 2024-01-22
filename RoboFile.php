@@ -18,6 +18,6 @@
  *
  * @see https://robo.li/
  */
-class RoboFile extends \Robo\Tasks
+class RoboFile extends Robo\Tasks
 {
 }
