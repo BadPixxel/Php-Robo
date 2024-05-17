@@ -16,7 +16,7 @@
 $pharPath = Phar::running(true);
 if ($pharPath) {
     $autoloaderPath = "{$pharPath}/vendor/autoload.php";
-    $dotEnvPath = "{$pharPath}";
+    $dotEnvPath = getcwd();
 } else {
     $dotEnvPath = __DIR__;
     //====================================================================//
