@@ -22,26 +22,27 @@
     },
 
     "require": {
-        "php":                          "^7.4|^8.0",
-        "consolidation/robo":           "^4.0",
-        "symfony/dotenv":               "^4.4|^5.4|^6.4",
-        "badpixxel/robo-php":           "1.0.x-dev",
-        "badpixxel/robo-jekyll":        "1.0.x-dev",
-        "badpixxel/robo-nodejs":        "1.0.x-dev",
-        "badpixxel/robo-splashsync":    "1.0.x-dev",
-        "badpixxel/robo-extras":        "1.0.x-dev"
+        "php":                          "^8.2",
+        "consolidation/robo":           "^5.0",
+        "symfony/dotenv":               "^5.4|^6.4|^7.0",
+        "badpixxel/robo-php":           "2.0.x-dev",
+        "badpixxel/robo-jekyll":        "2.0.x-dev",
+        "badpixxel/robo-nodejs":        "2.0.x-dev",
+        "badpixxel/robo-splashsync":    "2.0.x-dev",
+        "badpixxel/robo-extras":        "2.0.x-dev"
     },
     "require-dev": {
-        "badpixxel/php-sdk":            "^2.0"
+        "badpixxel/php-sdk":            "^3.0"
     },
 
     "config": {
         "preferred-install":            "dist",
         "platform": {
-            "php":      "7.4.0"
+
+            "php":      "8.2.0"
         },
         "allow-plugins": {
-            "phpro/grumphp": true
+            "phpro/grumphp-shim": true
         }
     }
 }
