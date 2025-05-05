@@ -64,7 +64,7 @@ class InstallCommand extends Tasks
      *
      * @return void
      *
-     * @SuppressWarnings(PHPMD.Superglobals)
+     * @SuppressWarnings(Superglobals)
      */
     public function installZsh(ConsoleIO $consoleIo)
     {
@@ -74,7 +74,7 @@ class InstallCommand extends Tasks
         //====================================================================//
         // Deploy Zsh Custom Script
         $home = $_SERVER['HOME'];
-        if ($home && is_dir($home."/.oh-my-zsh")) {
+        if ($home && is_string($home) && is_dir($home."/.oh-my-zsh")) {
             $taskResult = $fsStack
                 ->mkdir($home."/.oh-my-zsh/custom")
                 ->copy("./src/Resources/Zsh/wall-e.zsh", $home."/.oh-my-zsh/custom/wall-e.zsh")

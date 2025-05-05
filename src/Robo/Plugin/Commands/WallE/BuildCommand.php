@@ -103,13 +103,15 @@ class BuildCommand extends Tasks
      */
     protected function addPhpFiles(CollectionBuilder $pharTask, string $src, string $dest): void
     {
-        /** @var PackPhar $pharTask */
         $finder = Finder::create()
-            ->name('*.php')
+            ->name(array('*.php', "*.bash", "*.fish", "*.zsh"))
             ->in($src)
         ;
         foreach ($finder as $file) {
-            $pharTask->addFile($dest.$file->getRelativePathname(), $file->getRealPath());
+            $pharTask->__call("addFile", array(
+                $dest.$file->getRelativePathname(),
+                $file->getRealPath()
+            ));
         }
     }
 
@@ -124,7 +126,6 @@ class BuildCommand extends Tasks
      */
     protected function addExtraFolders(CollectionBuilder $pharTask, string $src, string $dest): void
     {
-        /** @var PackPhar $pharTask */
         $finder = Finder::create()
             ->name('.phar-keep')
             ->in($src)
@@ -132,11 +133,17 @@ class BuildCommand extends Tasks
         ;
 
         foreach ($finder as $keepFile) {
-            $pharTask->addFile($dest.$keepFile->getRelativePathname(), $keepFile->getRealPath());
+            $pharTask->__call("addFile", array(
+                $dest.$keepFile->getRelativePathname(),
+                $keepFile->getRealPath()
+            ));
             $keepDir = dirname($keepFile->getRealPath());
             $keepDirRelative = dirname($keepFile->getRelativePathname())."/";
             foreach (Finder::create()->in($keepDir)->files() as $file) {
-                $pharTask->addFile($dest.$keepDirRelative.$file->getRelativePathname(), $file->getRealPath());
+                $pharTask->__call("addFile", array(
+                    $dest.$keepDirRelative.$file->getRelativePathname(),
+                    $file->getRealPath()
+                ));
             }
         }
     }
