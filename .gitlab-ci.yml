@@ -74,9 +74,9 @@ pages:
 #################################################################
 ## Trigger Php SDK Docker Build
 #################################################################
-docker:php-sdk:
-    stage:      dependencies
-    trigger:
-        project:  badpixxel-projects/Php-Sdk
-        strategy: depend
+#docker:php-sdk:
+#    stage:      dependencies
+#    trigger:
+#        project:  badpixxel-projects/Php-Sdk
+#        strategy: depend
 
