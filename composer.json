@@ -24,21 +24,21 @@
     "require": {
         "php":                          "^7.4|^8.0",
         "consolidation/robo":           "^4.0",
-        "symfony/dotenv":               "^4.4|^5.4|^6.1",
-        "badpixxel/robo-php":           "dev-main",
-        "badpixxel/robo-jekyll":        "dev-main",
-        "badpixxel/robo-nodejs":        "dev-main",
-        "badpixxel/robo-splashsync":    "dev-main",
-        "badpixxel/robo-extras":        "dev-main"
+        "symfony/dotenv":               "^4.4|^5.4|^6.4",
+        "badpixxel/robo-php":           "1.0.x-dev",
+        "badpixxel/robo-jekyll":        "1.0.x-dev",
+        "badpixxel/robo-nodejs":        "1.0.x-dev",
+        "badpixxel/robo-splashsync":    "1.0.x-dev",
+        "badpixxel/robo-extras":        "1.0.x-dev"
     },
     "require-dev": {
         "badpixxel/php-sdk":            "^2.0"
     },
 
     "config": {
-        "preferred-install":                        "dist",
+        "preferred-install":            "dist",
         "platform": {
-            "php": "7.4.0"
+            "php":      "7.4.0"
         },
         "allow-plugins": {
             "phpro/grumphp": true

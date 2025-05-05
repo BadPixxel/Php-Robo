@@ -42,7 +42,11 @@ $configurationFilename = 'robo.yml';
 // Init DotEnv Variables
 try {
     $dotenv = new Symfony\Component\Dotenv\Dotenv();
-    $dotenv->load($dotEnvPath.'/.env', __DIR__.'/.env.dev');
+    $dotenv->load(
+        $dotEnvPath.'/.env',
+        $dotEnvPath.'/.env.dist',
+        $dotEnvPath.'/.env.dev'
+    );
 } catch (Symfony\Component\Dotenv\Exception\PathException $ex) {
 }
 //====================================================================//
